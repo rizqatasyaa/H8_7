@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Final Project 1</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    </head>
+
+    <body>
+        <h1 class="title">Uber and Lyft Cab Price Prediction</h1>
+        <div class="form1">
+            <h2 class="title2">Fill Form Here</h2>
+            <form action="{{ url_for('predict') }}" method="post">
+                <input name="cab_type" type="text" placeholder="0:Lyft | 1:Uber" id="scd" , required="required">
+
+                <input name="distance" type="text" placeholder="Fill in the distance value (ex:2)" id="hgh" required="required">
+
+                <input name="surge_multipler" type="text" placeholder="Value Between 1; 1.25; 1.5; 1.75; 2; 2.5; 3" id="dgr" required="required">
+
+                <input name="name" type="text" placeholder="Taxi Lyft or Uber Name" id="scd" , required="required">
+
+                <input name="destination" type="text" placeholder="Destination" id="scr" required="required">
+
+                <input name="source" type="text" placeholder="Source" id="scr" required="required">
+
+                <button type="submit">PREDICT</button>
+                <p class="message">{{ prediction_text }}</p>
+            </form>
+        </div>
+
+        <div class="form2">
+            <img src="../static/css/legends.png" alt="">
+        </div>
+    </body>
+
+</html>
