@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class=" text-center mt-2 ">
+        <h2>Heart Failure Prediction</h2>
+      </div>
+
+      <div class="row ">
+        <div class="col-lg-7 mx-auto">
+          <div class="card mt-2 mx-auto p-4 bg-light">
+            <div class="card-body bg-light">
+              <div class="container">
+                <form id="contact-form" role="form" action="{{ url_for('predict') }}" method="POST">
+                  <div class="controls">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_name">Age</label>
+                          <input id="form_name" type="text" name="Age" class="form-control" placeholder="Please enter your age" required="required" data-error="Age is required.">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_need">Gender?</label>
+                          <select id="form_need" name="Gender" class="form-control" required="required" data-error="Please fill this form.">
+                            <option value="1.0">Male</option>
+                            <option value="0.0">Female</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_lastname">Creatine Phospokinase</label>
+                          <input id="form_lastname" type="text" name="Creatine" class="form-control" placeholder="ex: 0mcg/L" required="required" data-error="Required">
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_lastname">Ejection Fraction</label>
+                          <input id="form_lastname" type="text" name="Eject" class="form-control" placeholder="Type Here" required="required" data-error="Required">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_lastname">Platelets</label>
+                          <input id="form_lastname" type="text" name="Platelets" class="form-control" placeholder="ex: 0kiloplatelets/mL" required="required" data-error="Required">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_lastname">Serum Creatinine</label>
+                          <input id="form_lastname" type="text" name="Serum_Creatinine" class="form-control" placeholder="ex: 0mg/dL" required="required" data-error="Required">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_lastname">Serum Sodium</label>
+                          <input id="form_lastname" type="text" name="Serum_Sodium" class="form-control" placeholder="ex: 0mEq/L" required="required" data-error="Required">
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_need">Are you Anaemia?</label>
+                          <select id="form_need" name="Anaemia" class="form-control" required="required" data-error="Please fill this form.">
+                            <option value="" selected disabled>--Select--</option>
+                            <option value="1.0">Yes</option>
+                            <option value="0.0">No</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_need">Diabetes?</label>
+                          <select id="form_need" name="Diabetes" class="form-control" required="required" data-error="Please fill this form.">
+                            <option value="" selected disabled>--Select--</option>
+                            <option value="1.0">Yes</option>
+                            <option value="0.0">No</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_need">High Blood Pressure?</label>
+                          <select id="form_need" name="High_Blood" class="form-control" required="required" data-error="Please fill this form.">
+                            <option value="" selected disabled>--Select--</option>
+                            <option value="1.0">Yes</option>
+                            <option value="0.0">No</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="form_need">Smoking?</label>
+                          <select id="form_need" name="Smoking" class="form-control" required="required" data-error="Please fill this form.">
+                            <option value="1.0">Yes</option>
+                            <option value="0.0">No</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <button type="submit" class="btn btn-success btn-send  pt-2 btn-block">Predict</button>
+                        <br>
+                        <h4 class="text-center" style="color: green;"><b>{{prediction_text}}</b></h4>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
